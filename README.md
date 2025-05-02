@@ -1,58 +1,113 @@
-# EC2 Instance Creation
+# Ex.4 Deployment and Configuration of a Virtual Private Cloud (VPC) in AWS
 
 ~~~
 Name : W Allen Johnston Ozario
 Reg.No : 21222411004
 ~~~
 
-## **Aim**
-To set up and launch an Amazon EC2 instance, providing on-demand computing services with flexible configurations for application deployment.
+## Aim:
+To set up of a Private Cloud  in AWS.
 
-## **Objectives**
-1. **Log into AWS**: Access the AWS Management Console to create and manage resources.
-2. **Launch EC2 Instance**: Configure the required instance parameters, including OS, storage, instance type, and network settings.
-3. **Create Key Pair**: Generate a secure SSH key pair for EC2 access.
-4. **Configure Network**: Adjust the instance’s VPC, subnets, and security groups as needed.
-5. **Connect to Instance**: Use SSH to establish a connection to the EC2 instance.
-6. **Automate EC2 Instance Creation**: Set up an Ansible playbook to automate the instance setup.
-7. **Monitor Instance State**: Track instance states (running, stopped, terminated) and utilize AWS CloudWatch for performance monitoring.
+## Setting up of a private cloud in AWS:
 
----
+Setting up a private cloud within AWS, also known as a Virtual Private Cloud (VPC),
+involves creating a logically isolated virtual network that you can use to launch AWS
+resources. This provides you with full control over your virtual networking environment,
+including resource placement, connectivity, and security.
+Amazon Virtual Private Cloud (Amazon VPC) gives you full control over your virtual
+networking environment, including resource placement, connectivity, and security. Get
+started by setting up your VPC in the AWS service console. Next, add resources to it such as
+Amazon Elastic Compute Cloud (EC2) and Amazon Relational Database Service (RDS)
+instances. Finally, define how your VPCs communicate with each other across accounts,
+Availability Zones, or AWS Regions.
 
-## **Instructions**
+## Procedure:
 
-### Step 1: Log into AWS Account
-   - Open the AWS console and select **EC2** under **Services**.
+1. Plan Your VPC:
+   ● Determine your needs:
+   Define your use case, including application requirements, security needs, and
+   compliance standards.
+   ● Plan IP address ranges:
+   Choose appropriate IP address ranges for your VPC and subnets to avoid conflicts.
+   ● Select Availability Zones:
+   Decide which Availability Zones (AZs) you'll use for your resources, considering
+   redundancy and performance.
+   ● Plan internet connectivity:
+   Determine if you need public internet access and how to configure it.
+   ● Define security:
+   Plan your security groups, network ACLs, and access controls to ensure a secure
+   environment.
+2. Create Your VPC:
+   •	Sign in to AWS Management Console: Access the VPC console and navigate to the VPC dashboard.
+   •	 Choose "Create VPC": Initiate the VPC creation process.
+   •	Configure VPC details: Enter the VPC name, CIDR block, Availability Zones, and
+   •	other necessary settings.
+   •	Create subnets: Define subnets within your VPC to isolate different parts of your
+   •	network.
+   •	Create route tables: Specify how traffic is routed within and outside the VPC.
+   •	 Create security groups: Define access control rules for your resources.
+3. Deploying Resources:
+   •	Launch EC2 instances: Create and launch virtual machines within your VPC.
+   •	 Set up RDS instances: Deploy databases for your applications.
+   •	Configure networking: Connect your resources to the appropriate subnets, security
+   groups, and route tables.
+   •	Deploy other AWS services: Integrate other services like S3 for storage and Lambda for serverless computing.
+4.Managing and Monitoring:
+   •	Use AWS CloudWatch: Monitor your VPC and resources for performance and
+   health.
+   •	Configure logging and auditing: Track access and activity within your VPC for
+   security and compliance.
+   •	Implement security best practices: Regularly review and update your security
+   configuration.
+   •	Scale and adjust as needed: Adjust your VPC infrastructure to meet changing
+   demands.
 
-![vcc1](https://github.com/user-attachments/assets/44fa39e0-9b38-4e17-9c7a-c20a1a99170e)
+## Snap Shot:
+
+## Snapshot 1: Create VPC
+
+ ![image](https://github.com/user-attachments/assets/de934f3e-eb4b-477b-bb8c-6222bf715a89)
+
+## Snapshot 2: Configuring Subnets
+
+![image](https://github.com/user-attachments/assets/ae44d425-edd9-4c0c-90e3-f4b5d0c95cc6)
+
+## Snapshot 3: Configure Subnets
+
+ ![image](https://github.com/user-attachments/assets/df94e9b3-55b1-42d7-afcc-5cc27ab4edf8)
 
 
-### Step 2: Launch an Instance
-   - Click on **Launch Instance** and configure **AMI** (Amazon Machine Image) and **Instance Type** (e.g., `t2.micro` for free tier).
+## Snapshot 4: Setting Internet gateway
 
-![vcc2](https://github.com/user-attachments/assets/613ba8f0-872e-4d7d-95bd-c93c56afd5fe)
+![image](https://github.com/user-attachments/assets/e418c476-619c-47cb-983b-8c6cc06313df)
 
+## Snapshot 5: Setting Internet gateway
 
-### Step 3: Create Key Pair
-   - Generate a **key pair** in `.pem` format, which will be downloaded for SSH access.
+![image](https://github.com/user-attachments/assets/af604bb3-40a2-4d8f-9bc3-a95059366a27)
 
-![vcc3](https://github.com/user-attachments/assets/c0910ce1-5909-4a53-8be9-3498eee43d02)
+## Snapshot 6: Setting Internet gateway
 
+![image](https://github.com/user-attachments/assets/474ba1c9-5783-4f5f-8730-973567ea4cb9)
 
-### Step 4: Configure Network and Storage
-   - Keep **network settings** default, or customize for VPC, subnets, and security groups.
-   - Choose the **EBS storage** (up to 30 GB free for eligible free-tier accounts).
+ 
+## Snapshot 7: Creating route table
 
-![vcc4](https://github.com/user-attachments/assets/c0656c11-7fa4-4714-9004-17f64b7cf360)
+![image](https://github.com/user-attachments/assets/fb0f941b-882a-4046-bf5b-e26bc3ddf6ed)
 
+## Snapshot 8: Configuring route table
 
-### Step 5: Launch and Connect
-   - Confirm configurations and click **Launch Instance**.
-   - Connect to the instance using SSH from your terminal with the downloaded key pair.
+![image](https://github.com/user-attachments/assets/1410818a-cb66-420f-afcd-3d6399f3703d)
 
-![vcc5](https://github.com/user-attachments/assets/f59100ed-1281-46c2-a8ea-ee1927d5c0e5)
+ 
+## Snapshot 9: Editing routes
 
+![image](https://github.com/user-attachments/assets/689bd862-c6e6-4367-9f61-868741db29aa)
 
-## **Results**
+ 
+## Snapshot 10: Creating route table
 
-Successfully created the Elastic Compute Cloud (EC2) instances in this lab.
+![image](https://github.com/user-attachments/assets/e83e61a1-8c05-4744-a268-be7f8015f1b6)
+
+## Result:
+Thus, a  private cloud on AWS involves using VPCs has been created for  a dedicated, isolated network where we can manage our resources and control access according to our requirements.
+
